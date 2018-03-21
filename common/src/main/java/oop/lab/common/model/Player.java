@@ -1,5 +1,7 @@
 package oop.lab.common.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.HashSet;
@@ -12,10 +14,10 @@ public class Player implements Serializable {
     private String lastName;
     private String position;
     private Timestamp birthdate;
-    private Set<Comment> commentsByPlayerId = new HashSet<>(0);
+    private Set<Comment> commentsByPlayerId = new HashSet<Comment>(0);
     private Skills skillsBySkillsId;
     private Team teamByTeamId;
-    private Set<User> users = new HashSet<>(0);
+    private Set<User> users = new HashSet<User>(0);
     private Long weight;
     private Long height;
     private Long salary;
@@ -91,6 +93,7 @@ public class Player implements Serializable {
         return result;
     }
 
+    @JsonIgnore
     public Set<Comment> getCommentsByPlayerId() {
         return commentsByPlayerId;
     }
@@ -115,6 +118,7 @@ public class Player implements Serializable {
         this.teamByTeamId = teamByTeamId;
     }
 
+    @JsonIgnore
     public Set<User> getUsers() {
         return users;
     }

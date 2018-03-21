@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/teams")
+@RequestMapping("/scouting/teams")
 public class TeamController {
 
     @Autowired
@@ -37,7 +37,7 @@ public class TeamController {
     }
 
     @DeleteMapping(value = "/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(HttpStatus.OK)
     public void deleteTeam(@PathVariable Long id) {
         teamService.delete(id);
     }

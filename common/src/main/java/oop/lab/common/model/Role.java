@@ -1,5 +1,7 @@
 package oop.lab.common.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,7 +9,7 @@ import java.util.Set;
 public class Role implements Serializable {
     private long roleId;
     private String type;
-    private Set<User> usersByRoleId = new HashSet<>(0);
+    private Set<User> usersByRoleId = new HashSet<User>(0);
 
     public long getRoleId() {
         return roleId;
@@ -45,6 +47,7 @@ public class Role implements Serializable {
         return result;
     }
 
+    @JsonIgnore
     public Set<User> getUsersByRoleId() {
         return usersByRoleId;
     }

@@ -1,5 +1,7 @@
 package oop.lab.common.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,8 +16,8 @@ public class Skills implements Serializable {
     private Long speed;
     private Long energy;
     private Long stamina;
-    private Set<Player> playersBySkillsId = new HashSet<>(0);
-    private Set<Team> teamsBySkillsId = new HashSet<>(0);
+    private Set<Player> playersBySkillsId = new HashSet<Player>(0);
+    private Set<Team> teamsBySkillsId = new HashSet<Team>(0);
 
     public long getSkillsId() {
         return skillsId;
@@ -113,6 +115,7 @@ public class Skills implements Serializable {
         return result;
     }
 
+    @JsonIgnore
     public Set<Player> getPlayersBySkillsId() {
         return playersBySkillsId;
     }
@@ -121,6 +124,7 @@ public class Skills implements Serializable {
         this.playersBySkillsId = playersBySkillsId;
     }
 
+    @JsonIgnore
     public Set<Team> getTeamsBySkillsId() {
         return teamsBySkillsId;
     }

@@ -1,14 +1,15 @@
-package oop.lab.users.dao;
+package oop.lab.common.dao;
 
 import java.io.Serializable;
+import java.util.List;
 
-interface BaseDAO<T, ID extends Serializable> {
+public interface BaseDAO<T, ID extends Serializable> {
 
     <S extends T> S save(S entity);
 
     T findOne(ID primaryKey);
 
-    Iterable<T> findAll();
+    List<T> findAll();
 
     Long count();
 

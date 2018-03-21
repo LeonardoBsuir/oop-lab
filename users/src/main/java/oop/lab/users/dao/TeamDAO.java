@@ -1,6 +1,7 @@
 package oop.lab.users.dao;
 
 
+import oop.lab.common.dao.BaseDAO;
 import oop.lab.common.model.Team;
 
 public interface TeamDAO extends BaseDAO<Team, Long> {

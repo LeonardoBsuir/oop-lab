@@ -1,4 +1,4 @@
-package oop.lab.users.service;
+package oop.lab.common.service;
 
 
 import java.util.List;
