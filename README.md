@@ -15,7 +15,9 @@ From the root of the project:
 
 ```bash
 mvn clean install
-java -jar app/target/app-1.0-SNAPSHOT-exec.jar
+java --add-modules=java.xml.bind,java.activation -jar app/target/app-1.0-SNAPSHOT-exec.jar
+
+java --add-modules=java.xml.bind,java.activation -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005 app/target/app-1.0-SNAPSHOT-exec.jar 
 ```
 
 This will spin up a spring boot application with endpoints

@@ -32,6 +32,13 @@ public class CommentJsonDAOImpl implements CommentDAO {
 
     public <S extends Comment> S save(S entity) {
         List<Comment> comments = new ArrayList<Comment>(findAll());
+        List<Comment> commentsDel = new ArrayList<Comment>();
+        for (Comment comment : comments) {
+            if (comment.getCommentId() == entity.getCommentId()) {
+                commentsDel.add(comment);
+            }
+        }
+        comments.removeAll(commentsDel);
         comments.add(entity);
         saveAll(comments);
         return entity;

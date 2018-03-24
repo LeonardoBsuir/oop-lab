@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Rights>
+    <Right>
+        <rightId>1</rightId>
+        <type>admin</type>
+        <usersByRightId />
+    </Right>
+    <Right>
+        <rightId>2</rightId>
+        <type>scout</type>
+        <usersByRightId />
+    </Right>
+    <Right>
+        <rightId>3</rightId>
+        <type>coach</type>
+        <usersByRightId />
+    </Right>
+    <Right>
+        <rightId>4</rightId>
+        <type>user</type>
+        <usersByRightId />
+    </Right>
+</Rights>

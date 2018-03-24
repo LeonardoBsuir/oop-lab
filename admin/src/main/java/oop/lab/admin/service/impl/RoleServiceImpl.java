@@ -3,6 +3,7 @@ package oop.lab.admin.service.impl;
 import oop.lab.admin.dao.RoleDAO;
 import oop.lab.admin.service.RoleService;
 import oop.lab.common.model.Role;
+import oop.lab.common.util.MyQualifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,7 @@ import java.util.List;
 @Transactional
 public class RoleServiceImpl implements RoleService {
 
-    @Autowired
+    @Autowired @MyQualifier
     private RoleDAO roleDAO;
 
     public void delete(Long id) {

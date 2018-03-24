@@ -18,9 +18,13 @@ public class UserJsonDAOImpl implements UserDAO {
     public List<User> findByTeamByTeamId_TeamId(Long teamId) {
         List<User> users = new ArrayList<User>(findAll());
         List<User> users1 = new ArrayList<User>();
+        Long teamId1;
         for (User user : users) {
-            if (teamId.equals(user.getTeamByTeamId().getTeamId())) {
-                users1.add(user);
+            if(user.getTeamByTeamId() != null) {
+                teamId1 = user.getTeamByTeamId().getTeamId();
+                if (teamId.equals(teamId1)) {
+                    users1.add(user);
+                }
             }
         }
         return users1;
@@ -30,6 +34,13 @@ public class UserJsonDAOImpl implements UserDAO {
 
     public <S extends User> S save(S entity) {
         List<User> users = new ArrayList<User>(findAll());
+        List<User> usersDel = new ArrayList<User>();
+        for (User user : users) {
+            if (user.getUserId() == entity.getUserId()) {
+                usersDel.add(user);
+            }
+        }
+        users.removeAll(usersDel);
         users.add(entity);
         saveAll(users);
         return entity;

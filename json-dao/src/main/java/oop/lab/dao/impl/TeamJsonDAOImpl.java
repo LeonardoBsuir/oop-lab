@@ -30,6 +30,13 @@ public class TeamJsonDAOImpl implements TeamDAO {
 
     public <S extends Team> S save(S entity) {
         List<Team> teams = new ArrayList<Team>(findAll());
+        List<Team> teamsDel = new ArrayList<Team>();
+        for (Team team : teams) {
+            if (team.getTeamId() == entity.getTeamId()) {
+                teamsDel.add(team);
+            }
+        }
+        teams.removeAll(teamsDel);
         teams.add(entity);
         saveAll(teams);
         return entity;

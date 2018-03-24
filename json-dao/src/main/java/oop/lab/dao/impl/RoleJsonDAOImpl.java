@@ -19,6 +19,13 @@ public class RoleJsonDAOImpl implements RoleDAO {
     
     public <S extends Role> S save(S entity) {
         List<Role> roles = new ArrayList<Role>(findAll());
+        List<Role> rolesDel = new ArrayList<Role>();
+        for (Role role : roles) {
+            if (role.getRoleId() == entity.getRoleId()) {
+                rolesDel.add(role);
+            }
+        }
+        roles.removeAll(rolesDel);
         roles.add(entity);
         saveAll(roles);
         return entity;

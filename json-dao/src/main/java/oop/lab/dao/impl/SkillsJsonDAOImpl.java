@@ -33,9 +33,16 @@ public class SkillsJsonDAOImpl implements SkillsDAO {
     private static final String PATH = "D:/Univer/oop-lab/json-dao/src/main/resources/json/skills.json";
 
     public <S extends Skills> S save(S entity) {
-        List<Skills> skills = new ArrayList<Skills>(findAll());
-        skills.add(entity);
-        saveAll(skills);
+        List<Skills> skillses = new ArrayList<Skills>(findAll());
+        List<Skills> skillsDel = new ArrayList<Skills>();
+        for (Skills skills : skillses) {
+            if (skills.getSkillsId() == entity.getSkillsId()) {
+                skillsDel.add(skills);
+            }
+        }
+        skillses.removeAll(skillsDel);
+        skillses.add(entity);
+        saveAll(skillses);
         return entity;
     }
 

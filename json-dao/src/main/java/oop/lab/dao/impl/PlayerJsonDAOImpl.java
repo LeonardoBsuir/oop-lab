@@ -51,6 +51,13 @@ public class PlayerJsonDAOImpl implements PlayerDAO {
 
     public <S extends Player> S save(S entity) {
         List<Player> players = new ArrayList<Player>(findAll());
+        List<Player> playersDel = new ArrayList<Player>();
+        for (Player player : players) {
+            if (player.getPlayerId() == entity.getPlayerId()) {
+                playersDel.add(player);
+            }
+        }
+        players.removeAll(playersDel);
         players.add(entity);
         saveAll(players);
         return entity;

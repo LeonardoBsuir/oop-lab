@@ -46,9 +46,9 @@ public class UserServiceImpl implements UserService {
         Player player = playerDAO.findOne(playerId);
         User user = userDAO.findOne(userId);
         user.getPlayers().add(player);
-        player.getUsers().add(user);
+        //player.getUsers().add(user);
         userDAO.save(user);
-        playerDAO.save(player);
+        //playerDAO.save(player);
     }
 
 
@@ -56,9 +56,9 @@ public class UserServiceImpl implements UserService {
         Player player = playerDAO.findOne(playerId);
         User user = userDAO.findOne(userId);
         user.getPlayers().remove(player);
-        player.getUsers().remove(user);
+        //player.getUsers().remove(user);
         userDAO.save(user);
-        playerDAO.save(player);
+        //playerDAO.save(player);
     }
 
 

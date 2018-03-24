@@ -42,6 +42,16 @@
             <artifactId>json.dao</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>oop.lab</groupId>
+            <artifactId>xml.dao</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>oop.lab</groupId>
+            <artifactId>external</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

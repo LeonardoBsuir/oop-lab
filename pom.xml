@@ -14,7 +14,9 @@
         <module>admin</module>
         <module>common</module>
         <module>json-dao</module>
+        <module>xml-dao</module>
         <module>users</module>
+        <module>external</module>
     </modules>
 
     <properties>

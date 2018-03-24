@@ -40,7 +40,7 @@ public class TeamServiceImpl implements TeamService {
     public List<Team> findAll() {
         List<Team> teams = (List<Team>) teamDAO.findAll();
         for (Team team : teams) {
-            //recalculateTeamSkills(team);
+            recalculateTeamSkills(team);
         }
         return (List<Team>) teamDAO.findAll();
     }
